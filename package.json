@@ -2,8 +2,9 @@
   "name": "realtime-subtitles",
   "version": "1.0.0",
   "description": "Realtime-subtitles captures input audio in Google Chrome and translating from any to any language. ",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "npx electron main.js --enable-logging",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/astrixgame/realtime-subtitles/issues"
   },
-  "homepage": "https://github.com/astrixgame/realtime-subtitles#readme"
+  "homepage": "https://github.com/astrixgame/realtime-subtitles#readme",
+  "dependencies": {
+    "assemblyai": "^4.6.0",
+    "axios": "^1.7.2",
+    "electron": "^31.2.1",
+    "electron-speech": "^1.0.7",
+    "mic": "^2.1.2",
+    "websocket": "^1.0.35"
+  }
 }
