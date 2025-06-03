@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google" value="notranslate">
+        <title>Real Time transcript</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <style id="mainColor">h1{color:#9b9b9b;}</style>
+        <style id="subColor">h1 span small{color:#963232;}</style>
+        <style id="mainSize">h1{font-size:25px;}</style>
+        <style id="subSize">h1 span small{font-size: 15px;}</style>
+        <style id="spacing">h1 span{padding-bottom:20px;}</style>
+    </head>
+    <body>
+        <div class="control-panel">
+            <div class="column">
+                <div class="input">
+                    <p>Translated text color</p>
+                    <input type="color" name="mainColor">
+                </div>
+                <div class="input">
+                    <p>Original text color</p>
+                    <input type="color" name="subColor">
+                </div>
+                <div class="input">
+                    <p>Background color</p>
+                    <input type="color" name="backgroundColor">
+                </div>
+            </div>
+            <div class="column">
+                <div class="input">
+                    <p>Spacing size</p>
+                    <input type="range" name="spacing" min="0" max="100">
+                </div>
+                <div class="input">
+                    <p>Translated text size</p>
+                    <input type="range" name="mainSize" min="0" max="30">
+                </div>
+                <div class="input">
+                    <p>Original text size</p>
+                    <input type="range" name="subSize" min="0" max="25">
+                </div>
+            </div>
+            <div class="column">
+                <div class="input">
+                    <p>Source language</p>
+                    <select name="sourceLang">
+                        <option value="sq-AL">Albanian</option>
+                        <option value="ar-EG">Arabic</option>
+                        <option value="hy-AM">Armenian</option>
+                        <option value="eu-ES">Basque</option>
+                        <option value="bn-BD">Bengali</option>
+                        <option value="bg-BG">Bulgarian</option>
+                        <option value="ca-ES">Catalan</option>
+                        <option value="km-KH">Cambodian</option>
+                        <option value="zh-CN">Chinese (Mandarin)</option>
+                        <option value="hr-HR">Croatian</option>
+                        <option value="cs-CZ">Czech</option>
+                        <option value="da-DK">Danish</option>
+                        <option value="nl-NL">Dutch</option>
+                        <option value="en-US">English</option>
+                        <option value="et-EE">Estonian</option>
+                        <option value="fj-FJ">Fiji</option>
+                        <option value="fi-FI">Finnish</option>
+                        <option value="fr-FR">French</option>
+                        <option value="ka-GE">Georgian</option>
+                        <option value="de-DE">German</option>
+                        <option value="el-GR">Greek</option>
+                        <option value="gu-IN">Gujarati</option>
+                        <option value="he-IL">Hebrew</option>
+                        <option value="hi-IN">Hindi</option>
+                        <option value="hu-HU">Hungarian</option>
+                        <option value="is-IS">Icelandic</option>
+                        <option value="id-ID">Indonesian</option>
+                        <option value="ga-IE">Irish</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="jw-ID">Javanese</option>
+                        <option value="ko-KR">Korean</option>
+                        <option value="la-VA">Latin</option>
+                        <option value="lv-LV">Latvian</option>
+                        <option value="lt-LT">Lithuanian</option>
+                        <option value="mk-MK">Macedonian</option>
+                        <option value="ms-MY">Malay</option>
+                        <option value="ml-IN">Malayalam</option>
+                        <option value="mt-MT">Maltese</option>
+                        <option value="mi-NZ">Maori</option>
+                        <option value="mr-IN">Marathi</option>
+                        <option value="mn-MN">Mongolian</option>
+                        <option value="ne-NP">Nepali</option>
+                        <option value="no-NO">Norwegian</option>
+                        <option value="fa-IR">Persian</option>
+                        <option value="pl-PL">Polish</option>
+                        <option value="pt-PT">Portuguese</option>
+                        <option value="pa-IN">Punjabi</option>
+                        <option value="qu-PE">Quechua</option>
+                        <option value="ro-RO">Romanian</option>
+                        <option value="ru-RU">Russian</option>
+                        <option value="sm-WS">Samoan</option>
+                        <option value="sr-RS">Serbian</option>
+                        <option value="sk-SK">Slovak</option>
+                        <option value="sl-SI">Slovenian</option>
+                        <option value="es-ES">Spanish</option>
+                        <option value="sw-KE">Swahili</option>
+                        <option value="sv-SE">Swedish</option>
+                        <option value="ta-IN">Tamil</option>
+                        <option value="tt-RU">Tatar</option>
+                        <option value="te-IN">Telugu</option>
+                        <option value="th-TH">Thai</option>
+                        <option value="bo-CN">Tibetan</option>
+                        <option value="to-TO">Tonga</option>
+                        <option value="tr-TR">Turkish</option>
+                        <option value="uk-UA">Ukrainian</option>
+                        <option value="ur-PK">Urdu</option>
+                        <option value="uz-UZ">Uzbek</option>
+                        <option value="vi-VN">Vietnamese</option>
+                        <option value="cy-GB">Welsh</option>
+                        <option value="xh-ZA">Xhosa</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <p>Target language</p>
+                    <select name="targetLang">
+                        <option value="sq-AL">Albanian</option>
+                        <option value="ar-EG">Arabic</option>
+                        <option value="hy-AM">Armenian</option>
+                        <option value="eu-ES">Basque</option>
+                        <option value="bn-BD">Bengali</option>
+                        <option value="bg-BG">Bulgarian</option>
+                        <option value="ca-ES">Catalan</option>
+                        <option value="km-KH">Cambodian</option>
+                        <option value="zh-CN">Chinese (Mandarin)</option>
+                        <option value="hr-HR">Croatian</option>
+                        <option value="cs-CZ">Czech</option>
+                        <option value="da-DK">Danish</option>
+                        <option value="nl-NL">Dutch</option>
+                        <option value="en-US">English</option>
+                        <option value="et-EE">Estonian</option>
+                        <option value="fj-FJ">Fiji</option>
+                        <option value="fi-FI">Finnish</option>
+                        <option value="fr-FR">French</option>
+                        <option value="ka-GE">Georgian</option>
+                        <option value="de-DE">German</option>
+                        <option value="el-GR">Greek</option>
+                        <option value="gu-IN">Gujarati</option>
+                        <option value="he-IL">Hebrew</option>
+                        <option value="hi-IN">Hindi</option>
+                        <option value="hu-HU">Hungarian</option>
+                        <option value="is-IS">Icelandic</option>
+                        <option value="id-ID">Indonesian</option>
+                        <option value="ga-IE">Irish</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="jw-ID">Javanese</option>
+                        <option value="ko-KR">Korean</option>
+                        <option value="la-VA">Latin</option>
+                        <option value="lv-LV">Latvian</option>
+                        <option value="lt-LT">Lithuanian</option>
+                        <option value="mk-MK">Macedonian</option>
+                        <option value="ms-MY">Malay</option>
+                        <option value="ml-IN">Malayalam</option>
+                        <option value="mt-MT">Maltese</option>
+                        <option value="mi-NZ">Maori</option>
+                        <option value="mr-IN">Marathi</option>
+                        <option value="mn-MN">Mongolian</option>
+                        <option value="ne-NP">Nepali</option>
+                        <option value="no-NO">Norwegian</option>
+                        <option value="fa-IR">Persian</option>
+                        <option value="pl-PL">Polish</option>
+                        <option value="pt-PT">Portuguese</option>
+                        <option value="pa-IN">Punjabi</option>
+                        <option value="qu-PE">Quechua</option>
+                        <option value="ro-RO">Romanian</option>
+                        <option value="ru-RU">Russian</option>
+                        <option value="sm-WS">Samoan</option>
+                        <option value="sr-RS">Serbian</option>
+                        <option value="sk-SK">Slovak</option>
+                        <option value="sl-SI">Slovenian</option>
+                        <option value="es-ES">Spanish</option>
+                        <option value="sw-KE">Swahili</option>
+                        <option value="sv-SE">Swedish</option>
+                        <option value="ta-IN">Tamil</option>
+                        <option value="tt-RU">Tatar</option>
+                        <option value="te-IN">Telugu</option>
+                        <option value="th-TH">Thai</option>
+                        <option value="bo-CN">Tibetan</option>
+                        <option value="to-TO">Tonga</option>
+                        <option value="tr-TR">Turkish</option>
+                        <option value="uk-UA">Ukrainian</option>
+                        <option value="ur-PK">Urdu</option>
+                        <option value="uz-UZ">Uzbek</option>
+                        <option value="vi-VN">Vietnamese</option>
+                        <option value="cy-GB">Welsh</option>
+                        <option value="xh-ZA">Xhosa</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h1></h1>
+        <div class="vis">
+            <div class="visual"></div>
+        </div>
+        <script>
+            class RealTimeTranslator {
+                constructor() {
+                    this.options = {
+                        sourceLang: "en-US",
+                        targetLang: "cs-CZ",
+                        backgroundColor: "#000000",
+                        mainColor: "#9b9b9b",
+                        subColor: "#963232",
+                        spacing: 10,
+                        mainSize: 25,
+                        subSize: 15
+                    };
+                    this.elements = {
+                        element: document.querySelector("h1"),
+                        newElement: document.createElement("span")
+                    };
+                    this.visualElement = document.getElementsByClassName("visual")[0];
+                    this.elements.element.appendChild(this.elements.newElement);
+                    this.optionsListeners();
+                    this.loadOptions().then(() => this.initSpeechRecognition());
+                }
+
+                initSpeechRecognition() {
+                    navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then((stream) => {
+                        var audioCtx = new AudioContext(),
+                            audioAnalyzer = audioCtx.createAnalyser();
+
+                        audioCtx.createMediaStreamSource(stream).connect(audioAnalyzer);
+                        audioAnalyzer.smoothingTimeConstant = 0.5;
+                        audioAnalyzer.fftSize = 32;
+
+                        var frequencyData = new Uint8Array(audioAnalyzer.frequencyBinCount),
+                            loop = () => {
+                            audioAnalyzer.getByteFrequencyData(frequencyData);
+                            this.visualElement.style.height = (100 - Object.values(frequencyData)[1] / 2.55) + "%";
+                            requestAnimationFrame(loop);
+                        };
+                        requestAnimationFrame(loop);
+                    }).catch();
+                    if("webkitSpeechRecognition" in window) {
+                        this.speechRecognition_thread = new (window.SpeechRecognition || window.webkitSpeechRecognition);
+                        this.speechRecognition_thread.continuous = false;
+                        this.speechRecognition_thread.lang = this.options.sourceLang;
+                        this.speechRecognition_thread.interimResults = false;
+                        this.speechRecognition_thread.onresult = (e) => this.speechResult(e);
+                        this.speechRecognition_thread.onstart = () => this.speechStart();
+                        this.speechRecognition_thread.onend = () => this.speechEnd();
+                        this.speechRecognition_thread.start();
+                    } else
+                        alert("This browser is not supported, try using Google Chrome");
+                }
+
+                speechResult(e) {
+                    var transcript = e.results[0][0].transcript;
+                    this.translate(transcript).then((text) => {
+                        this.elements.newElement.innerHTML = this.getDate()+": "+text+"<small>"+transcript+"</small>";
+                        if(e.results[0].isFinal) {
+                            window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+                            this.elements.newElement = document.createElement("span");
+                            this.elements.element.appendChild(this.elements.newElement);
+                        }
+                    });
+                }
+
+                getDate() {
+                    var dt = new Date(),
+                        hh = dt.getHours(),
+                        mm = dt.getMinutes(),
+                        ss = dt.getSeconds();
+                    return (hh < 10 ? "0"+hh : hh)+":"+(mm < 10 ? "0"+mm : mm)+":"+(ss < 10 ? "0"+ss : ss);
+                }
+
+                speechStart() {
+
+                }
+
+                speechEnd() {
+                    this.speechRecognition_thread.start();
+                }
+
+                loadOptions() {
+                    return new Promise((r) => {
+                        decodeURIComponent(document.cookie).split(';').forEach((c) => {
+                            if(c.includes("options="))
+                                this.options = JSON.parse(c.replace("options=", ""));
+                        });
+                        Object.keys(this.options).forEach((e) => {
+                            var el = document.querySelector('[name="'+e+'"]');
+                            el.value = this.options[e];
+                            if(el.tagName.toLowerCase() == "input")
+                                el.oninput();
+                        });
+                        r();
+                    });
+                }
+
+                optionsListeners() {
+                    document.querySelectorAll("input, select").forEach((i) => {
+                        if(i.tagName.toLowerCase() == "input") {
+                            i.oninput = () => {
+                                this.options[i.name] = i.value;
+                                switch(i.name) {
+                                    case "backgroundColor":
+                                        document.querySelector("body").style.backgroundColor = i.value;
+                                    break;
+                                    case "mainColor":
+                                    case "subColor":
+                                        var d = document.querySelector("#"+i.name);
+                                        var t = d.innerHTML;
+                                        d.innerHTML = t.replace(t.substring(t.indexOf(':')+1, t.indexOf(';')), i.value);
+                                    break;
+                                    case "spacing":
+                                    case "mainSize":
+                                    case "subSize":
+                                        var d = document.querySelector("#"+i.name);
+                                        var t = d.innerHTML;
+                                        d.innerHTML = t.replace(t.substring(t.indexOf(':')+1, t.indexOf(';')), i.value+"px");
+                                    break;
+                                }
+                            };
+                            i.addEventListener('change', () => {
+                                this.saveOptions();
+                                window.location.href=window.location.href;
+                            });
+                        } else
+                            i.addEventListener('change', () => {
+                                this.options[i.name] = i.value;
+                                this.saveOptions();
+                                window.location.href=window.location.href;
+                            });
+                    });
+                }
+
+                saveOptions() {
+                    const d = new Date();
+                    d.setTime(d.getTime() + 34560000000);
+                    document.cookie = "options="+JSON.stringify(this.options)+";expires="+d.toUTCString()+";SameSite=Strict;path=/";
+                }
+
+                translate(text) {
+                    return new Promise((r) => {
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.onreadystatechange = () => {
+                            if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                                r(JSON.parse(xmlHttp.responseText)[0][0][0]);
+                        }
+                        xmlHttp.open("GET", "https://translate.googleapis.com/translate_a/single?client=gtx&sl="+this.options.sourceLang.split('-')[0]+"&tl="+this.options.targetLang.split('-')[0]+"&dt=t&q="+encodeURI(text), true);
+                        xmlHttp.send(null);
+                    });
+                }
+            }
+
+            var sp = new RealTimeTranslator();
+        </script>
+    </body>
+</html>
