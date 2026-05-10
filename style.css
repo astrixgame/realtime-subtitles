@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #000000;
+}
+
+h1 {
+    display: block;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px 20px 20px 20px;
+    line-height: 3;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+}
+
+h1 span {
+    position: relative;
+    display: block;
+}
+
+h1 span small {
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    color: #963232;
+}
+
+input {
+    background-color: transparent;
+    color: white;
+    width: 50px;
+    border: none;
+    outline: none;
+}
+
+.control-panel {
+    position: fixed;
+    left: 0px;
+    top: -153px;
+    width: 100%;
+    height: 143px;
+    z-index: 3;
+    padding-top: 10px;
+    background-color: rgb(31, 31, 31);
+    border-bottom: 30px solid rgb(31, 31, 31);
+}
+
+.control-panel:hover {
+    top: 0px;
+}
+
+.control-panel:active {
+    top: 0px;
+}
+
+.control-panel:focus {
+    top: 0px;
+}
+
+.column {
+    float: left;
+}
+
+.input {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 20px 0px 20px;
+}
+
+.input:last-child {
+    padding-bottom: 5px;
+}
+
+.input input {
+    margin: 0;
+    padding: 0;
+}
+
+.input p {
+    color: white;
+    padding: 8px 0px 0px 0px;
+    margin: 0;
+}
+
+input[type=range] {
+    width: 200px;
+}
+
+input[type=color] {
+    width: 30px;
+    cursor: pointer;
+    cursor: pointer;
+    height: 20px;
+}
+
+select {
+    margin: 0px 0px 24px 0px;
+}
+
+.vis {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    width: 5px;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #ff0000 5%, #ff7f00 10%, #ffff00 15%, #00ff00 70%);
+}
+
+.vis .visual {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transition: all 0.15s;
+}
